@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Exchanges() {
+function News() {
     return (
         <div>
-            
+           News 
         </div>
     )
 }
 
-export default Exchanges
+export default News;

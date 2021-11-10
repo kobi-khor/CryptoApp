@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Homepage() {
+function Exchanges() {
     return (
         <div>
-            
+            Exchange
         </div>
     )
 }
 
-export default Homepage
+export default Exchanges;

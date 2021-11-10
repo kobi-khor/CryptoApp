@@ -14,7 +14,7 @@
 }
 
 a:hover {
-  color: var(--pink) !important;
+  color: var(--pink);
 }
 
 .app {
