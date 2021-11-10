@@ -3,9 +3,9 @@ import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 
 const cryptoApiHeaders = {
-    'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+    'x-rapidapi-host': 'api.coinranking.com/v2',
     'x-rapidapi-token': 'coinranking54e7fc5497b75cd8611b70047daa021966fc40b363417ecb',
-    //'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': '*',
 }
 
 // Another Api source for checking
