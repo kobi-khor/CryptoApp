@@ -4,7 +4,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
 import { Navbar } from './components';
-import { Homepage, Exchanges, Cryptocurrensies, CryptoDetails, News } from './pages'
+import { Homepage, Exchanges, Cryptocurrencies, CryptoDetails, News } from './components'
 import './App.css'
 import { formatCountdown } from 'antd/lib/statistic/utils';
 
@@ -21,7 +21,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Homepage/>}/>
               <Route exact path="/exchanges" element={<Exchanges/>}/>
-              <Route exact path="/cryptocurrensies" element={<Cryptocurrensies/>}/>
+              <Route exact path="/cryptocurrencies" element={<Cryptocurrencies/>}/>
               <Route exact path="/crypto/:coinId" element={<CryptoDetails/>}/>
               <Route exact path="/news" element={<News/>}/>
             </Routes>
@@ -34,7 +34,7 @@ function App() {
           </Typography.Title>
           <Space>
             <Link to='/'>Home</Link>
-            <Link to='/cryptocurrensies'>Cryptocurrensies</Link>
+            <Link to='/cryptocurrencies'>Cryptocurrencies</Link>
             <Link to='/exchanges'>Exchanges</Link>
             <Link to='/news'>News</Link>
 

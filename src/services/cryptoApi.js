@@ -3,47 +3,37 @@ import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 
 const cryptoApiHeaders = {
-    'x-rapidapi-host': 'api.coinranking.com/v2',
-    'x-rapidapi-token': 'coinranking54e7fc5497b75cd8611b70047daa021966fc40b363417ecb',
-    'Access-Control-Allow-Origin': '*',
+    'x-rapidapi-host': process.env.REACT_APP_CRYPTO_RAPIDAPI_HOST,
+    'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY
 }
 
-// Another Api source for checking
-// var options = {
-//     method: 'GET',
-//     url: 'https://coinlore-cryptocurrency.p.rapidapi.com/api/tickers/',
-//     params: {start: '0', limit: '100'},
-//     headers: {
-//       'x-rapidapi-host': 'coinlore-cryptocurrency.p.rapidapi.com',
-//       'x-rapidapi-key': 'c7ab38c029mshbb8dec892dbb8f1p176c5bjsnb6ac7147b613'
-//     }
-//   };
 
-//https://coinlore-cryptocurrency.p.rapidapi.com/api
+// const baseUrl = 'https://coinranking1.p.rapidapi.com';
 
-//https://api.coinranking.com/v2
-//https://coinranking1.p.rapidapi.com
-const baseUrl = 'https://api.coinranking.com/v2';
-
-const  createRequest = (url) => ({url, header: cryptoApiHeaders});
+const  createRequest = (url) => ({url, headers: cryptoApiHeaders});
 
 export const cryptoApi = createApi({
     reducerPath: 'cryptoApi',
-    baseQuery: fetchBaseQuery({ baseUrl}),
+    baseQuery: fetchBaseQuery({baseUrl: process.env.REACT_APP_CRYPTO_API_URL}),
     endpoints: (builder) => ({
-    getCryptos: builder.query({
-    query: (count) => createRequest(`/coins?limit=${count}`),
-    }),
+        getCryptos: builder.query({
+         query: () => createRequest(`/coins?limit=${100}`),
+         }),
 }),
 });
 
-export const { useGetCryptosQuery,} = cryptoApi;
+// const baseUrl = 'https://api.coingecko.com/api/v3';
 
-// var options = {
-//     method: 'GET',
-//     url: 'https://coinranking1.p.rapidapi.com/stats',
-//     headers: {
-//       'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-//       'x-rapidapi-key': 'c7ab38c029mshbb8dec892dbb8f1p176c5bjsnb6ac7147b613'
-//     }
-//   };
+// const  createRequest = (url) => ({url});
+
+// export const cryptoApi = createApi({
+//     reducerPath: 'cryptoApi',
+//     baseQuery: fetchBaseQuery({ baseUrl}),
+//     endpoints: (builder) => ({
+//         getCryptos: builder.query({
+//          query: () => createRequest(`/coins/list`),
+//          }),
+// }),
+// });
+
+export const { useGetCryptosQuery,} = cryptoApi;
