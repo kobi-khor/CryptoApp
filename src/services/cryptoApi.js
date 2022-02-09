@@ -7,9 +7,6 @@ const cryptoApiHeaders = {
     'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY
 }
 
-
-// const baseUrl = 'https://coinranking1.p.rapidapi.com';
-
 const  createRequest = (url) => ({url, headers: cryptoApiHeaders});
 
 export const cryptoApi = createApi({
@@ -17,23 +14,12 @@ export const cryptoApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: process.env.REACT_APP_CRYPTO_API_URL}),
     endpoints: (builder) => ({
         getCryptos: builder.query({
-         query: () => createRequest(`/coins?limit=${100}`),
+         query: (count) => createRequest(`/coins?limit=${count}`),
          }),
+        getCryptoDetails: builder.query({
+         query: (coinId) => createRequest(`/coin/${coinId}`),
+         })
 }),
 });
 
-// const baseUrl = 'https://api.coingecko.com/api/v3';
-
-// const  createRequest = (url) => ({url});
-
-// export const cryptoApi = createApi({
-//     reducerPath: 'cryptoApi',
-//     baseQuery: fetchBaseQuery({ baseUrl}),
-//     endpoints: (builder) => ({
-//         getCryptos: builder.query({
-//          query: () => createRequest(`/coins/list`),
-//          }),
-// }),
-// });
-
-export const { useGetCryptosQuery,} = cryptoApi;
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery} = cryptoApi;
