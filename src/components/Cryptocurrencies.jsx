@@ -33,6 +33,9 @@ const Cryptocurrencies = ({simplified}) => {
                 gutter={[32, 32]} 
                 className="crypto-card-container">
                     {cryptos?.map((currency) => (
+
+                        
+                        
                         <Col
                             xs={24}
                             sm={12}

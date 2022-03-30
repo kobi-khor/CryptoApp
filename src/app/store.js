@@ -9,3 +9,5 @@ export default configureStore({
       [cryptoNewsApi.reducerPath]: cryptoNewsApi.reducer
     },
   });
+
+// setupListeners(store.dispatch);
